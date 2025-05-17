@@ -1,42 +1,264 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #e0f0ff;
+}
+
+.App {
+  padding: 20px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.dropdown {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  width: 40%;
+  height: 60px;
+  border-radius: 26px;
+  background-color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.stats-card {
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 150px;
+  display: flex;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 300px;
+  max-width: 250px;
+}
+
+.left {
+  padding: 10px;
+  color: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+.left h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.left p {
+  margin: 0;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.right {
+  background-color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.right h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+.charts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.line-chart,
+.pie-chart {
+  flex: 1 1 300px;
+  max-width: 500px;
+  height: auto;
+}
+
+.line-chart-wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  height: 350px;
+}
+
+.date-filter {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.date-filter label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.date-filter input[type="date"] {
+  padding: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.date-input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  width: 250px;
+}
+
+.date-range-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.date-display {
+  padding: 10px 16px;
+  background-color: white;
+  color: black;
+  border-radius: 25px;
+  font-weight: bold;
+  width: 300px;
+  cursor: pointer;
+  border: 1px solid gray;
+  height: 27px;
+  margin-top: 20px;
+}
+
+.calendar-popup {
+  position: absolute;
+  top: 45px;
+  z-index: 999;
+}
+
+.filter-btn {
+  padding: 8px 12px;
+  margin-left: 10px;
+  border: none;
+  background-color: #4B7BE5;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.rdrDateRangeWrapper {
+  position: absolute;
+  z-index: 1000;
+  top: 40px;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  .stats-card {
+    min-width: 90%;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .stats-card .left, 
+  .stats-card .right {
+    border-radius: 0;
+    padding: 15px;
   }
-}
 
-.card {
-  padding: 2em;
-}
+  .stats-card .left {
+    border-radius: 15px 15px 0 0;
+  }
 
-.read-the-docs {
-  color: #888;
+  .stats-card .right {
+    background-color: #f0f0f0;
+    border-radius: 0 0 15px 15px;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .dropdown {
+    width: 90%;
+    height: 50px;
+    border-radius: 15px;
+  }
+
+  .date-filter {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 0;
+    gap: 5px;
+    width: 90%;
+  }
+
+  .date-filter input[type="date"], 
+  .date-input {
+    width: 100%;
+  }
+
+  .line-chart-wrapper {
+    width: 100% !important;
+    margin-left: 0 !important;
+    height: auto;
+  }
+
+  .charts {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .line-chart,
+  .pie-chart {
+    width: 95% !important;
+  }
+
+  .date-display {
+    width: 90% !important;
+    margin-left: 0 !important;
+  }
 }
